@@ -1,2 +1,3 @@
 rootProject.name = 'import-actuals-from-csv'
 
+gradle.ext.clarityBuildVersion = '16.1.3'

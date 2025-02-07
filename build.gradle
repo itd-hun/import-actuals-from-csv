@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath(group: 'software.amazon.awssdk', name: 'bom', version: '2.20.43')
+        classpath(group: 'software.amazon.awssdk', name: 'sso', version: '2.20.43')
+        classpath(group: 'software.amazon.awssdk', name: 'auth', version: '2.20.43')
+    }
+}
+
 plugins {
     id 'groovy'
 }
@@ -5,13 +16,28 @@ plugins {
 group = 'org.onboard'
 version = '1.0-SNAPSHOT'
 
+import software.amazon.awssdk.auth.credentials.*;
+
+ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create("emea_ee_dev_pepperandsalt_imipl-119245722327")
+AwsCredentials awsCredentials = credentialsProvider.resolveCredentials()
+
 repositories {
     mavenCentral()
+    maven {
+        url "s3://aws-maven-repo.itdesign.de/releases"
+        credentials(org.gradle.api.credentials.AwsCredentials) {
+            accessKey awsCredentials.accessKeyId()
+            secretKey awsCredentials.secretAccessKey()
+            sessionToken awsCredentials.sessionToken()
+        }
+    }
 }
 
 dependencies {
-    implementation 'org.apache.groovy:groovy:4.0.14'
+    implementation 'org.apache.groovy:groovy-all:4.0.9'
+    implementation 'org.apache.groovy:groovy-yaml:4.0.9'
 
+    implementation "clarity:clarity-all:$gradle.ext.clarityBuildVersion"
     implementation fileTree(dir: 'customlib', include: '*.jar')
 
     testImplementation platform('org.junit:junit-bom:5.10.0')
