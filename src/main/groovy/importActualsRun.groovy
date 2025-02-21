@@ -2,7 +2,6 @@ import de.itdesign.clarity.logging.CommonLogger
 import de.itdesign.interfaces.cmn.dto.enums.InterfaceStatusEnum
 import de.itdesign.interfaces.shared.actuals.ActualsInterfaceProcessor
 import de.itdesign.interfaces.utils.rest.CommonRestUtils
-import demo.de.itdesign.hun.ImportActualsFromCSV
 import groovy.transform.Field
 
 import java.sql.Connection
