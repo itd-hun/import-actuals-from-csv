@@ -1,3 +1,5 @@
+package org.onboard
+
 import de.itdesign.clarity.logging.CommonLogger
 import de.itdesign.interfaces.cmn.dto.enums.InterfaceStatusEnum
 import de.itdesign.interfaces.shared.actuals.ActualsInterfaceProcessor
