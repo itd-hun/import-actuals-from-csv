@@ -6,6 +6,8 @@ import de.itdesign.interfaces.shared.actuals.ActualsInterfaceProcessor
 import de.itdesign.interfaces.utils.rest.CommonRestUtils
 import groovy.transform.Field
 
+/* */
+
 import java.sql.Connection
 
 if (!['connection', 'configInstanceCode'].collect { assertInput(it) }.every()) {
