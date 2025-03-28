@@ -24,6 +24,9 @@ import de.itdesign.interfaces.validation.utils.OutputFormatter
 import de.itdesign.interfaces.validation.utils.ValidationRule
 import groovy.sql.Sql
 
+
+
+
 import java.sql.Connection
 import java.text.DecimalFormat
 import java.text.NumberFormat
